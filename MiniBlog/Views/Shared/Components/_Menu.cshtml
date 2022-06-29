@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Category>
+
+@if (Model is not null)
+{
+    @foreach (var item in Model)
+    {
+        <li class="nav-item">
+            <a class="nav-link active" asp-route="CategoryRoute" asp-route-categoryId="@item.Id">@item.Title</a>
+        </li>
+    }
+}

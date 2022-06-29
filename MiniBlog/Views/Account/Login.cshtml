@@ -1,0 +1,19 @@
+﻿@model LoginModel
+
+<div asp-validation-summary="All" class="card-body" style="color:red"></div>
+
+<form method="post" action="login">
+    <div class="mb-3">
+        <label asp-for="Nickname" class="form-label">Nickname</label>
+        <input asp-for="Nickname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label">Password</label>
+        <input asp-for="Password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+        <input asp-for="Remember" class="form-check-input" id="exampleCheck1">
+        <label asp-for="Remember" class="form-check-label">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

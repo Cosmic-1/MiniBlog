@@ -1,0 +1,11 @@
+﻿@model User
+
+<div class="card mb-3">
+    <img src="@Model.ImageAvatarLocal" class="card-img-top" alt="@Model.Nickname">
+    <div class="card-body">
+        <p class="card-text">@Model.Description</p>
+        <p class="card-text"><small class="text-muted">Email: @Model.Email</small></p>
+        <p class="card-text"><small class="text-muted">Nickname: @Model.Nickname</small></p>
+        <p class="card-text"><small class="text-muted">Fuul name: @Model.FullName</small></p>
+    </div>
+</div>

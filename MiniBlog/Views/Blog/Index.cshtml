@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Post>
+
+
+@if (ViewBag.Title is not null)
+{
+    <h1>@ViewBag.Title</h1>
+}
+
+@await Html.PartialAsync("_Posts", Model)
+
+@await Html.PartialAsync("_Pagenavigation")

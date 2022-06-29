@@ -1,0 +1,21 @@
+﻿<footer class="border-top footer">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-11">
+                &copy; @DateTime.UtcNow.Year - MiniBlog <a asp-route="AuthorRoute">About</a>
+            </div>
+            <div class="col-1">
+                @if (Context.User.Identity?.IsAuthenticated ?? false)
+                {
+                    <a href="/logout">Logout</a>
+                }
+                else
+                {
+                    <a href="/login">Login</a>
+                }
+            </div>
+        </div>
+
+    </div>
+</footer>

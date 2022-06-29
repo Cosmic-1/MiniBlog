@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Post>
+
+@if (Model is not null)
+{
+    @foreach (var item in Model)
+    {
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <a asp-route="PostRoute" asp-route-postId="@item.Id"><h2 class="card-title">@item.Title</h2></a>
+                <p class="card-text">@item.ShortContent</p>
+                <p class="card-text"><small class="text-muted">@item.DateAddPost</small></p>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <p>No Post</p>
+}

@@ -1,0 +1,11 @@
+﻿@model Category
+
+@if (Model is not null)
+{
+    <h1>@Model.Title</h1>
+    <p>@Model.Content</p>
+}
+
+@await Html.PartialAsync("_Posts", Model?.Posts)
+
+@await Html.PartialAsync("_Pagenavigation")

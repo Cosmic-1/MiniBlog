@@ -1,0 +1,65 @@
+﻿@model Post
+
+<div asp-validation-summary="All" class="card-body" style="color:red"></div>
+
+<form method="post" asp-route="AddPostRoute">
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input asp-for="Title" class="form-control" id="exampleFormControlInput1">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">RemoveContent</label>
+        <input asp-for="ShortContent" class="form-control" id="exampleFormControlInput1">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Date</label>
+        <input asp-for="DateAddPost" class="form-control" id="exampleFormControlInput1">
+    </div>
+
+    <div class="mb-3">
+        @if (ViewBag.ListCategory is not null)
+        {
+            <select asp-for="Category.Id" class="form-select">
+                @foreach (var item in ViewBag.ListCategory as IEnumerable<Category> ?? Array.Empty<Category>())
+                {
+                    <option value="@item.Id">@item.Title</option>
+                }
+            </select>
+        }
+        else
+        {
+            <p>No Categories</p>
+        }
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Content</label>
+        <textarea asp-for="Content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+
+    <div class="mb-3">
+        <label class="form-check-label">IsPublished</label>
+        <input class="form-check-input" asp-for="IsPublished">
+    </div>
+
+    <h2>Meta</h2>
+
+    <div class="mb-3">
+        <label class="form-label">MetaTitle</label>
+        <input asp-for="MetaTitle" class="form-control" id="exampleFormControlInput1">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">MetaDescription</label>
+        <input asp-for="MetaDescription" class="form-control" id="exampleFormControlInput1">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">MetaKeywords</label>
+        <input asp-for="MetaKeywords" class="form-control" id="exampleFormControlInput1">
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</form>

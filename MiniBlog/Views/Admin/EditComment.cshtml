@@ -1,0 +1,26 @@
+﻿@model Comment
+
+<div asp-validation-summary="All" class="card-body" style="color:red"></div>
+
+<form method="post" asp-route="CommentEditRoute" asp-route-commentId="@Model.Id">
+    <div class="mb-3">
+        <label class="form-label">Nickname</label>
+        <input asp-for="Nickname" class="form-control" id="exampleFormControlInput1">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="Email" class="form-control" id="exampleFormControlInput1">
+    </div>
+     <div class="mb-3">
+        <label class="form-label">Date</label>
+        <input asp-for="DateAdd" class="form-control" id="exampleFormControlInput1">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Content</label>
+        <textarea asp-for="Content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </div>
+</form>

@@ -1,0 +1,53 @@
+﻿@model Post
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h1 class="card-title">@Model.Title</h1>
+                    <p class="card-text">@Model.Content</p>
+                    <p class="card-text"><small class="text-muted">Category: <a asp-route="CategoryRoute" asp-route-categoryId="@Model.Category.Id">@Model.Category.Title</a></small></p>
+                    <p class="card-text"><small class="text-muted">Add date: @Model.DateAddPost</small></p>
+                    <p class="card-text"><small class="text-muted">Comments: @Model.Comments.Count</small></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            
+            <form method="post" asp-route="PostAddRoute" asp-route-postId="@Model.Id">
+                <div class="mb-3">
+                    <label class="form-label">Nickname</label>
+                    <input type="text" name="Nickname" class="form-control" id="exampleFormControlInput1" placeholder="Your Nickname">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email address</label>
+                    <input type="email" name="Email" class="form-control" id="exampleFormControlInput1" placeholder="Your Email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Example textarea</label>
+                    <textarea name="Content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </form>
+
+            <div class="card mb-3">
+                @foreach (var item in Model.Comments.OrderByDescending(a => a.DateAdd))
+                {
+                    <div class="card-body">
+                        <h4 class="card-title">@item.Nickname</h4>
+                        <p class="card-text">@item.Content</p>
+                        <p class="card-text"><small class="text-muted">Comment date: @item.DateAdd</small></p>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>

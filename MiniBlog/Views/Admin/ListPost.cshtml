@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Post>
+
+<div class="card mb-3">
+    <a asp-route="AddPostRoute" class="btn btn-primary" role="button"><h1 class="card-title">Add Post</h1></a>
+</div>
+
+@if (Model is not null)
+{
+    @foreach (var item in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <a asp-route="PostRoute" asp-route-postId="@item.Id"><h1 class="card-title">@item.Title</h1></a>
+                <a asp-route="PostEditRoute" asp-route-postId="@item.Id"><h3 class="card-title">Edit</h3></a>
+                <a asp-route="DeletePostRoute" asp-route-postId="@item.Id"><h3 class="card-title">Delete</h3></a>
+                <p class="card-text"><b>Id:</b> @item.Id</p>
+                <p class="card-text"><b>Title:</b> @item.Title</p>
+                <p class="card-text"><b>Content:</b> @item.Content</p>
+                <p class="card-text"><b>RemoveContent:</b> @item.ShortContent</p>
+                <p class="card-text"><b>Slug:</b> @item.Slug</p>
+                 <p class="card-text"><b>DateAddPost:</b> @item.DateAddPost</p>
+                 <p class="card-text"><b>IsPublished:</b> @item.IsPublished</p>
+                <h2 class="card-title">Meta</h2>
+                <p class="card-text"><b>MetaTitle:</b> @item.MetaTitle</p>
+                <p class="card-text"><b>MetaDescription:</b> @item.MetaDescription</p>
+                <p class="card-text"><b>MetaKeywords:</b> @item.MetaKeywords</p>
+            </div>
+        </div>
+    }
+
+}
+else
+{
+    <p>No Posts</p>
+}
+
+@await Html.PartialAsync("_Pagenavigation")

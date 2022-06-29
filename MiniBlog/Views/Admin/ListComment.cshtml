@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Comment>
+
+@if (Model is not null)
+{
+    @foreach (var item in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <p class="card-text"><b>Id:</b> @item.Id</p>
+                <p class="card-text"><b>Email:</b> @item.Email</p>
+                <p class="card-text"><b>Nickname:</b> @item.Nickname</p>
+                <p class="card-text"><b>Content:</b> @item.Content</p>
+                <p class="card-text"><b>DateAddComment:</b> @item.DateAdd</p>
+                <a asp-route="CommentEditRoute" asp-route-commentId="@item.Id"><h3 class="card-title">Edit</h3></a>
+                <a asp-route="DeleteCommentRoute" asp-route-commentId="@item.Id"><h3 class="card-title">Delete</h3></a>
+            </div>
+        </div>
+    }
+
+}
+else
+{
+    <p>No Comments</p>
+}
+
+@await Html.PartialAsync("_Pagenavigation")

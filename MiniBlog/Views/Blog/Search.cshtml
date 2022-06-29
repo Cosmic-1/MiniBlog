@@ -1,0 +1,21 @@
+﻿@model IEnumerable<SearchModel>
+
+@if (Model is not null)
+{
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <a asp-route="PostRoute" asp-route-postId="@item.PostId">@item.Title</a>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            No posts
+        </div>
+    </div>
+}
